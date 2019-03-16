@@ -1,0 +1,18 @@
+grant{
+    permission java.awt.AWTPermission "showWindowWithoutWarningBanner";
+    permission javax.security.auth.AuthPermission "createLoginContext.Login1";
+    permission javax.security.auth.AuthPermission "doAsPrivileged";
+    permission javax.security.auth.AuthPermission "modifyPrincipals";
+    permission java.io.FilePermission "password.txt", "read";
+};
+
+grant principal login.SimplePrincipal "role=admin"
+{
+    permission java.util.PropertyPermission "user.home", "read";
+    permission java.util.PropertyPermission "book.*", "read";
+};
+
+grant principal login.SimplePrincipal "role=customer"
+{
+    permission java.util.PropertyPermission "book.catogeryA", "read";
+};
